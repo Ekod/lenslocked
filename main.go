@@ -34,7 +34,8 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", home).Methods("GET")
 	r.HandleFunc("/contact", contact).Methods("GET")
-	r.HandleFunc("/signup", usersC.New).Methods("GET", "POST")
+	r.HandleFunc("/signup", usersC.New).Methods("GET")
+	r.HandleFunc("/signup", usersC.Create).Methods("POST")
 	http.ListenAndServe(":3030", r)
 
 }
